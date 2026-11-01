@@ -9,5 +9,4 @@
 - <convenciones del proyecto, dependencias nuevas, estilo>
 
 ## Memoria (.ai/)
-- Al empezar, leer en orden: .ai/currentplan.md, .ai/status.md, .ai/task.md, .ai/memory.md (reglas en ~/.claude/rules/docs.md).
-- Opcional si el proyecto lo necesita: .ai/rules/, .ai/skills/<nombre>/SKILL.md, .ai/hooks/pre.sh y post.sh, .ai/design/.
+- Al empezar, leer en orden: .ai/currentplan.md, .ai/status.md, .ai/task.md, .ai/memory.md.

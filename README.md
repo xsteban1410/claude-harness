@@ -1,31 +1,28 @@
 # claude-harness
 
 Arnés para trabajar con Claude Code de forma consistente en todos tus proyectos: memoria de proyecto (`.ai/`),
-guía por repositorio (`AGENTS.md`) y una parte global (`~/.claude`) con reglas, subagente y despachador de hooks.
+guía por repositorio (`AGENTS.md`) y un `.claude` general con las reglas de comportamiento.
 
-## Estructura
+## Qué contiene
 
-| Dónde | Qué | Alcance |
+| En el repo | Se instala / se copia en | Para qué |
 |---|---|---|
-| `~/.claude/rules/` | `autonomy` (modo objetivo), `docs` (cómo se escribe `.ai/`) | global |
-| `~/.claude/agents/guardian.md` | cierre de sesión (Haiku) | global |
-| `~/.claude/harness/hooks/dispatch.sh` | ejecuta `.ai/hooks/pre.sh` / `post.sh` del proyecto, si existen | global |
-| `<proyecto>/.ai/` | `currentplan`, `status`, `task`, `memory`, `history`, `decisions`, `design`, `roadmap`, `changelog` | por proyecto |
-| `<proyecto>/AGENTS.md` | guía del proyecto: entorno, convenciones | por proyecto |
+| `dot-claude/rules/` (`autonomy`, `docs`) | `~/.claude/rules/` | comportamiento general: modo objetivo y cómo se escribe `.ai/` |
+| `dot-claude/agents/guardian.md` | `~/.claude/agents/` | cierre de sesión (Haiku) |
+| `dot-claude/CLAUDE.md` | bloque en `~/.claude/CLAUDE.md` | lee `AGENTS.md` y `.ai/` al empezar |
+| `templates/.ai/` | `<proyecto>/.ai/` | memoria: `currentplan`, `status`, `task`, `memory`, `history`, `decisions`, `design`, `roadmap`, `changelog` |
+| `templates/AGENTS.md` | `<proyecto>/AGENTS.md` | guía del proyecto: entorno y convenciones |
 
-`.ai/` es memoria viva (plan vigente, estado, tareas, historial); `AGENTS.md` es lo propio del repositorio (entorno y
-convenciones). Si un proyecto necesita reglas, skills, diseño o hooks propios, van dentro de `.ai/` (`rules/`, `skills/`,
-`design/`, `hooks/`). Ambos se crean con `claude-harness init` y por defecto quedan en `.git/info/exclude`.
+Nada más: cada proyecto solo tiene `.ai/` y `AGENTS.md`; el comportamiento general vive en `~/.claude`.
 
 ## Instalación
 
 ```sh
 git clone https://github.com/xsteban1410/claude-harness ~/Projects/claude-harness
-~/Projects/claude-harness/install.sh      # requiere jq
+~/Projects/claude-harness/install.sh
 ```
 
-Enlaza reglas y subagente en `~/.claude`, añade un bloque a `~/.claude/CLAUDE.md` y registra el despachador de hooks en
-`~/.claude/settings.json`. Es idempotente; `CLAUDE_HOME` cambia el destino.
+Enlaza reglas y subagente en `~/.claude` y añade un bloque a `~/.claude/CLAUDE.md`. Es idempotente; `CLAUDE_HOME` cambia el destino.
 
 ## Uso
 
@@ -34,8 +31,7 @@ cd mi-proyecto && claude-harness init     # crea AGENTS.md y .ai/ (no pisa lo ex
 claude-harness update                     # git pull + reinstalar
 ```
 
-Después edita `AGENTS.md`. Para un hook del proyecto, crea `.ai/hooks/pre.sh` o `post.sh` (`chmod +x`): recibe el JSON del
-hook por stdin y `exit 2` bloquea.
+Después edita `AGENTS.md`.
 
 ## Versionado
 

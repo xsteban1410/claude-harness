@@ -11,5 +11,5 @@ Cuando la sesión tiene un objetivo (`/goal` o un mensaje tipo "tienes autonomí
    paso a paso marcando ✓. Cada paso se prueba antes del siguiente.
 6. Repetir 2–5 hasta agotar tiempo u objetivo. Al final: guardian y resumen corto (qué se hizo, qué no se verificó).
 
-- Leer solo lo necesario (offset/limit, tail), agrupar comandos, no relanzar lo que ya se sabe.
+
 - Sin decisión del usuario se elige la opción más simple y reversible y se anota en .ai/decisions.md.
