@@ -13,5 +13,6 @@ ln -sfn "$here/templates" "$dest/templates"
 md=$dest/CLAUDE.md; touch "$md"
 b='<!-- claude-harness:begin -->'; e='<!-- claude-harness:end -->'
 sed -i "/$b/,/$e/d" "$md"
+printf "%s\n" "$(cat "$md")" > "$md"  # quita líneas en blanco finales
 { echo; echo "$b"; cat "$here/dot-claude/CLAUDE.md"; echo "$e"; } >> "$md"
 echo "Instalado en $dest (rules, agents, templates y bloque en CLAUDE.md)."
