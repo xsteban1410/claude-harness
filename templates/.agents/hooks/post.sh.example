@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# Copiar a post.sh y hacerlo ejecutable. Recibe el JSON del hook (PostToolUse) por stdin.
+# exit 2 + mensaje en stderr = devolver los hallazgos al modelo.
+input=$(cat)
+exit 0

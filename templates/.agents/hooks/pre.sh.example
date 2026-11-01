@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# Copiar a pre.sh y hacerlo ejecutable. Recibe el JSON del hook (PreToolUse) por stdin.
+# exit 2 + mensaje en stderr = bloquear la herramienta.
+input=$(cat)
+exit 0
