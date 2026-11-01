@@ -1,6 +1,5 @@
 ## Harness por proyecto (claude-harness)
-- Cada repositorio tiene solo `AGENTS.md` (raíz) y `.ai/`; `.claude` existe únicamente en ~/.claude.
-- Si un repositorio no los tiene, créalos desde las plantillas de ~/.claude/templates (`AGENTS.md` y `.ai/`), rellenando
-  `AGENTS.md` en base al repositorio (qué es, cómo se ejecuta, convenciones) y añadiéndolos a `.git/info/exclude`.
-- Al empezar leer `AGENTS.md` y, en orden, `.ai/currentplan.md`, `.ai/status.md`, `.ai/task.md`, `.ai/memory.md`.
-- Reglas generales (autonomy, docs) y subagente `guardian`: ~/.claude/rules y ~/.claude/agents.
+- Cada repo tiene `CLAUDE.md` (raíz) y `.ai/` (`currentplan.md` + `history.md`); `.claude` solo existe en ~/.claude.
+- Si faltan, créalos desde ~/.claude/templates, rellenando `CLAUDE.md` según el repo, y añádelos a `.git/info/exclude`.
+- Al empezar leer `.ai/currentplan.md`; `history.md` solo con tail. Hechos duraderos van a la memoria nativa, no a `.ai/`.
+- Al modificar el arnés (~/Projects/claude-harness): commit y push de ese repo.
