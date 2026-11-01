@@ -1,7 +1,7 @@
 # claude-harness
 
 Arnés para trabajar con Claude Code de forma consistente en todos tus proyectos: memoria de proyecto (`.ai/`),
-guía y reglas por repositorio (`.agents/`) y una parte global (`~/.claude`) con reglas, subagente y despachador de hooks.
+guía por repositorio (`AGENTS.md`) y una parte global (`~/.claude`) con reglas, subagente y despachador de hooks.
 
 ## Estructura
 
@@ -9,13 +9,13 @@ guía y reglas por repositorio (`.agents/`) y una parte global (`~/.claude`) con
 |---|---|---|
 | `~/.claude/rules/` | `autonomy` (modo objetivo), `docs` (cómo se escribe `.ai/`) | global |
 | `~/.claude/agents/guardian.md` | cierre de sesión (Haiku) | global |
-| `~/.claude/harness/hooks/dispatch.sh` | ejecuta `.agents/hooks/pre.sh` / `post.sh` del proyecto, si existen | global |
+| `~/.claude/harness/hooks/dispatch.sh` | ejecuta `.ai/hooks/pre.sh` / `post.sh` del proyecto, si existen | global |
 | `<proyecto>/.ai/` | `currentplan`, `status`, `task`, `memory`, `history`, `decisions`, `design`, `roadmap`, `changelog` | por proyecto |
-| `<proyecto>/.agents/` | `AGENTS.md`, `rules/`, `skills/`, `agents/`, `design/`, `hooks/` | por proyecto |
+| `<proyecto>/AGENTS.md` | guía del proyecto: entorno, convenciones | por proyecto |
 
-`.ai/` es memoria viva (plan vigente, estado, tareas, historial). `.agents/` es lo que depende del repositorio:
-entorno, reglas por tipo de archivo, skills, referencias de diseño y hooks. Ambos se crean con `claude-harness init` y
-por defecto quedan en `.git/info/exclude`.
+`.ai/` es memoria viva (plan vigente, estado, tareas, historial); `AGENTS.md` es lo propio del repositorio (entorno y
+convenciones). Si un proyecto necesita reglas, skills, diseño o hooks propios, van dentro de `.ai/` (`rules/`, `skills/`,
+`design/`, `hooks/`). Ambos se crean con `claude-harness init` y por defecto quedan en `.git/info/exclude`.
 
 ## Instalación
 
@@ -30,12 +30,12 @@ Enlaza reglas y subagente en `~/.claude`, añade un bloque a `~/.claude/CLAUDE.m
 ## Uso
 
 ```sh
-cd mi-proyecto && claude-harness init     # crea .ai/ y .agents/ (no pisa lo existente)
+cd mi-proyecto && claude-harness init     # crea AGENTS.md y .ai/ (no pisa lo existente)
 claude-harness update                     # git pull + reinstalar
 ```
 
-Después edita `.agents/AGENTS.md` (entorno y convenciones) y añade reglas, skills o hooks del proyecto. Para un hook,
-copia `.agents/hooks/pre.sh.example` a `pre.sh` (`chmod +x`): recibe el JSON del hook por stdin y `exit 2` bloquea.
+Después edita `AGENTS.md`. Para un hook del proyecto, crea `.ai/hooks/pre.sh` o `post.sh` (`chmod +x`): recibe el JSON del
+hook por stdin y `exit 2` bloquea.
 
 ## Versionado
 

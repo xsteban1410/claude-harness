@@ -8,7 +8,7 @@ Haces el cierre de sesión del proyecto actual en su carpeta `.ai/`. Recibes en 
 No inventes nada que no esté ahí.
 
 Reglas:
-- Si `.agents/AGENTS.md` define cómo ejecutar comandos, úsalo; Bash solo para `date +%F` y `tail -n 5 .ai/history.md`.
+- Si `AGENTS.md` define cómo ejecutar comandos, úsalo; Bash solo para `date +%F` y `tail -n 5 .ai/history.md`.
 - Nunca leas history.md entero. Nunca toques archivos fuera de .ai/.
 
 Pasos:

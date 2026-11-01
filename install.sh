@@ -16,7 +16,7 @@ b='<!-- claude-harness:begin -->'; e='<!-- claude-harness:end -->'
 sed -i "/$b/,/$e/d" "$md"
 { echo; echo "$b"; cat "$here/global/CLAUDE.md"; echo "$e"; } >> "$md"
 
-# Hooks en settings.json: un despachador que no hace nada sin .agents/hooks/
+# Hooks en settings.json: un despachador que no hace nada sin .ai/hooks/
 command -v jq >/dev/null || { echo "jq es necesario para editar settings.json" >&2; exit 1; }
 s=$dest/settings.json; [[ -f $s ]] || echo '{}' > "$s"
 tmp=$(mktemp)
