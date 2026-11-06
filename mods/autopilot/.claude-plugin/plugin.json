@@ -1,0 +1,9 @@
+{
+  "name": "autopilot",
+  "version": "0.1.0",
+  "description": "Trabajo autónomo por cuota: sigue el plan hasta que quede el 10 % de la sesión, repasa 10 min antes de recargar y reanuda al recargar.",
+  "userConfig": {
+    "floor": { "type": "number", "title": "Cuota mínima (%)", "description": "Se detiene cuando queda este % de la sesión de 5 h", "default": 10 },
+    "reviewMinutes": { "type": "number", "title": "Repaso antes de recargar (min)", "description": "Minutos antes de la recarga en los que repasa y escribe el siguiente plan", "default": 10 }
+  }
+}

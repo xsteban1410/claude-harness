@@ -1,0 +1,9 @@
+{
+  "name": "harness-sync",
+  "version": "0.1.0",
+  "description": "Sincroniza el estado de Claude Code con el repo privado (backup, commit y push) a petición o cada 7 días.",
+  "userConfig": {
+    "repo": { "type": "string", "title": "Repo privado", "description": "Carpeta del repo claude-harness-private", "default": "~/Projects/claude-harness-private" },
+    "autoSync": { "type": "string", "title": "Sincronización cada 7 días", "description": "ask: avisa; auto: sincroniza solo; off: nada", "default": "ask", "options": ["ask", "auto", "off"] }
+  }
+}
